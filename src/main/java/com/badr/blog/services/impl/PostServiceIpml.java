@@ -4,6 +4,7 @@ import com.badr.blog.domain.PostStatus;
 import com.badr.blog.domain.entities.Category;
 import com.badr.blog.domain.entities.Post;
 import com.badr.blog.domain.entities.Tag;
+import com.badr.blog.domain.entities.User;
 import com.badr.blog.repositories.PostRepository;
 import com.badr.blog.services.CategoryService;
 import com.badr.blog.services.PostService;
@@ -53,5 +54,10 @@ public class PostServiceIpml implements PostService {
         }
 
         return postRepository.findAllByStatus(PostStatus.PUBLISHED);
+    }
+
+    @Override
+    public List<Post> getDraftPosts(User user) {
+        return postRepository.findAllByAuthorAndStatus(user, PostStatus.DRAFT);
     }
 }
