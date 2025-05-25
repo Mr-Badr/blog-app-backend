@@ -9,4 +9,7 @@ public interface CategoryService {
     List<Category> listCategories();
     Category createCategory(Category category);
     void deleteCategory(UUID id);
+
+    // We use this with Posts filtering
+    Category getCategoryById(UUID id);
 }
